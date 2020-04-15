@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
 
-  STATUS = ['En attente', 'Regufé', 'Accepté'].freeze
+  STATUS = ['En attente', 'Refusé', 'Accepté'].freeze
   validates :status, inclusion: { in: STATUS }
   validates :start_date, :end_date, presence: true, availability: true, on: :create
   validate :check_date_from_today, :end_date_after_start_date

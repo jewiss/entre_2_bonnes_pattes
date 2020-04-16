@@ -1,0 +1,59 @@
+.form-card {
+  height: 500px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 8px 9px 15px rgba(0,0,0,0.2);
+  .form-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    opacity: 0.76;
+    border-radius: 5px 0px 0px 5px;
+  }
+  .form-infos {
+    background-color: $form-color;
+    border-radius: 0px 5px 5px 0px;
+    .form-inputs, .form-actions {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      width: 400px;
+    }
+    p {
+      position: absolute;
+      bottom: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: $violet;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+.input-group {
+  display: flex;
+  .input-group-prepend {
+    .input-group-addon {
+      padding: 7px;
+      background: $middle-pink;
+      color: white;
+      min-width: 40px;
+      text-align: center;
+    }
+  }
+}
+
+.form-control:focus{
+  box-shadow: 0 0 0 .2rem #EABFCB;
+  border-color: #EABFCB;
+}
+
+#icon-passord {
+  height: 38px;
+}

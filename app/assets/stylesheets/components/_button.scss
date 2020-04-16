@@ -6,6 +6,10 @@
   transition: background 0.3s ease;
 }
 
+.btn:focus {
+box-shadow: 0 0 0 .2rem #EABFCB;
+}
+
 .button-basic:hover {
   background: $middle-pink;
   opacity: 0.8;

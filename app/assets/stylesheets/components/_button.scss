@@ -1,1 +1,13 @@
-button.scss
+.button-basic {
+  color: rgba(0,0,0,0.8);
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $middle-pink;
+  transition: background 0.3s ease;
+}
+
+.button-basic:hover {
+  background: $middle-pink;
+  opacity: 0.8;
+  color: rgba(0,0,0,0.6);
+}

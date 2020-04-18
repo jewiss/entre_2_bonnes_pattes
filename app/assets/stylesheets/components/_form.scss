@@ -18,7 +18,6 @@
       margin-left: auto;
       margin-right: auto;
       margin-top: 50px;
-      width: 400px;
     }
     ::placeholder {
       color: #EBD0CE;
@@ -37,11 +36,12 @@
 
 .form-group {
   margin-bottom: 0;
-  flex-grow: 1;
+  .invalid-feedback {
+    display: none;
+  }
 }
 
 .input-group {
-  display: flex;
   .input-group-prepend {
     .input-group-addon {
       padding: 7px;
@@ -58,7 +58,7 @@
   border-color: #EABFCB;
 }
 
-#icon-passord {
+.icon {
   height: 38px;
 }
 

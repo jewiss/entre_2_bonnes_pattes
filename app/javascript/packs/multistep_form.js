@@ -13,26 +13,18 @@ const DOMstrings = {
 
 //remove class from a set of items
 const removeClasses = (elemSet, className) => {
-
   elemSet.forEach(elem => {
-
     elem.classList.remove(className);
-
   });
-
 };
 
 //return exect parent node of the element
 const findParent = (elem, parentClass) => {
-
   let currentNode = elem;
-
   while (!currentNode.classList.contains(parentClass)) {
     currentNode = currentNode.parentNode;
   }
-
   return currentNode;
-
 };
 
 //get active button step number
@@ -165,3 +157,4 @@ window.addEventListener('load', setFormHeight, false);
 
 //SETTING PROPER FORM HEIGHT ONRESIZE
 window.addEventListener('resize', setFormHeight, false);
+

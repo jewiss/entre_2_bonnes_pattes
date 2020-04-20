@@ -40,7 +40,7 @@
                         <div class="flex-grow-1">
                           <%= f.input :first_name, label: false, autofocus: true,
                                   placeholder: 'Prenom', required: true,
-                                  input_html: { autocomplete: "prenom" }, class: "form-control"%>
+                                  input_html: { autocomplete: "first_name" }, class: "form-control"%>
                         </div>
                       </div>
                     </div>
@@ -87,7 +87,7 @@
                         <div class="flex-grow-1">
                         <%= f.input :address, label: false, autofocus: true,
                                   placeholder: 'adresse', required: true,
-                                  input_html: { autocomplete: "adresse" }, class: "form-control"%>
+                                  input_html: { autocomplete: "adresse" }, class: "form-control", id: "address"%>
                         </div>
                       </div>
                     </div>

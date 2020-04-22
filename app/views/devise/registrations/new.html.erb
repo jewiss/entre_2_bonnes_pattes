@@ -72,7 +72,9 @@
                       <div class="input-group-prepend">
                         <span class="input-group-addon icon"><i class="fas fa-birthday-cake"></i></span>
                         <div class="flex-grow-1">
-                        <%= f.input :age, label: false, autofocus: true,
+                        <%= f.input :age, label: false, autofocus: true, as: :date,  start_year: Date.today.year - 90,
+                              end_year: Date.today.year,
+                              order: [:day, :month, :year],
                                   placeholder: 'age', required: true,
                                   input_html: { autocomplete: "age" }, class: "form-control"%>
                         </div>

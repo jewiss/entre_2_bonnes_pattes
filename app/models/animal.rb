@@ -4,6 +4,7 @@ class Animal < ApplicationRecord
   belongs_to :bleed
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_many_attached :photos
 
   validates :name, :age, :sex, presence: true
   validates :descriptions, presence: true, length: { minimum: 20 }

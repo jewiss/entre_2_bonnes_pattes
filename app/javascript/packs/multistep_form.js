@@ -34,13 +34,10 @@ const getActiveStep = elem => {
 
 //set all steps before clicked (and clicked too) to active
 const setActiveStep = activeStepNum => {
-
   //remove active state from all the state
   removeClasses(DOMstrings.stepsBtns, 'js-active');
-
   //set picked items to active
   DOMstrings.stepsBtns.forEach((elem, index) => {
-
     if (index <= activeStepNum) {
       elem.classList.add('js-active');
     }
@@ -50,37 +47,45 @@ const setActiveStep = activeStepNum => {
 
 //get active panel
 const getActivePanel = () => {
-
   let activePanel;
-
   DOMstrings.stepFormPanels.forEach(elem => {
-
     if (elem.classList.contains('js-active')) {
-
       activePanel = elem;
-
     }
-
   });
-
   return activePanel;
-
 };
 
 //open active panel (and close unactive panels)
 const setActivePanel = activePanelNum => {
 
+  // test si les champs sont renseignés avant de passer à la suite
+  const AllInputs =  {
+    first_name: document.querySelector("#user_first_name").value,
+    last_name: document.querySelector("#user_last_name").value,
+    email: document.querySelector("#user_email").value,
+    address: document.querySelector("#user_address").value,
+    pass: document.querySelector("#user_password").value,
+    pass_confirm: document.querySelector("#user_password_confirmation").value};
+
+  for (element in AllInputs){
+    if (AllInputs[element] == "")
+    {
+      alert("Merci de renseigner tous les champs");
+      return false;
+    }
+    else
+    {
+    }
+  }
+
   //remove active class from all the panels
   removeClasses(DOMstrings.stepFormPanels, 'js-active');
-
   //show active panel
   DOMstrings.stepFormPanels.forEach((elem, index) => {
     if (index === activePanelNum) {
-
       elem.classList.add('js-active');
-
       setFormHeight(elem);
-
     }
   });
 
@@ -88,68 +93,49 @@ const setActivePanel = activePanelNum => {
 
 //set form height equal to current panel height
 const formHeight = activePanel => {
-
   const activePanelHeight = activePanel.offsetHeight;
-
   DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
-
 };
 
 const setFormHeight = () => {
   const activePanel = getActivePanel();
-
   formHeight(activePanel);
 };
 
 //STEPS BAR CLICK FUNCTION
 DOMstrings.stepsBar.addEventListener('click', e => {
-
   //check if click target is a step button
   const eventTarget = e.target;
-
   if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
     return;
   }
-
   //get active button step number
   const activeStep = getActiveStep(eventTarget);
-
   //set all steps before clicked (and clicked too) to active
   setActiveStep(activeStep);
-
   //open active panel
   setActivePanel(activeStep);
 });
 
 //PREV/NEXT BTNS CLICK
 DOMstrings.stepsForm.addEventListener('click', e => {
-
   const eventTarget = e.target;
-
   //check if we clicked on `PREV` or NEXT` buttons
   if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`)))
   {
     return;
   }
-
   //find active panel
   const activePanel = findParent(eventTarget, `${DOMstrings.stepFormPanelClass}`);
-
   let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
-
   //set active step and active panel onclick
   if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
     activePanelNum--;
-
   } else {
-
     activePanelNum++;
-
   }
-
   setActiveStep(activePanelNum);
   setActivePanel(activePanelNum);
-
 });
 
 //SETTING PROPER FORM HEIGHT ONLOAD

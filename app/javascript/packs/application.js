@@ -11,12 +11,8 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import $ from 'jquery';
 
 document.addEventListener('turbolinks:load', () => {
-
-// require("./multistep_form").reload()
-
-})
-
-document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initAutocomplete();
+  // require("./multistep_form").reload();
+
 });

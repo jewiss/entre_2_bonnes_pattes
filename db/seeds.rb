@@ -11,7 +11,7 @@ puts 'Creating 10 new users...'
     password: "123456",
     last_name: Faker::Name.last_name,
     first_name: Faker::Name.first_name,
-    age: rand(20..50),
+    age: rand(Date.civil(1975, 1, 1)..Date.civil(2019, 12, 31)),
     address: Faker::Address.full_address,
     description: Faker::Lorem.sentence
     )

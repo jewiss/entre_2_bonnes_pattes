@@ -6,7 +6,7 @@
 }
 
 .card {
-  width: 450px;
+  width: 550px;
   height: 250px;
   background-color: #fff;
   background: linear-gradient(#f8f8f8, #fff);
@@ -14,7 +14,7 @@
   border-radius: 6px;
   overflow: hidden;
   position: relative;
-  margin: 1.5rem;
+  margin: 1.5rem 0px;
 }
 
 .card h1 {
@@ -80,7 +80,7 @@
 }
 
 .card .additional .more-info {
-  width: 300px;
+  width: 400px;
   float: left;
   position: absolute;
   left: 150px;
@@ -151,7 +151,7 @@
 }
 
 .card .general {
-  width: 300px;
+  width: 400px;
   height: 100%;
   position: absolute;
   top: 0;

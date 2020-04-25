@@ -1,53 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-
-<div class="container">
-  <div class="card">
-    <div class="additional">
-      <div class="user-card">
-        <div class="username center">
-          Mélissa
-        </div>
-        <div class="price center">
-          10€/j
-        </div>
-        <div class="image_avatar center" style="background-image: url('https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60'); background-size: 100%;">
-        </div>
-      </div>
-      <div class="more-info">
-        <h1>Mélissa Martin</h1>
-        <div class="coords">
-          <span>30 ans</span>
-          <span>Note</span>
-        </div>
-        <div class="coords">
-          <span> 75000 - Paris </span>
-          <span> 3Km</span>
-        </div>
-        <div class="stats">
-          <div>
-            <div class="title">Logement</div>
-            <i class="fas fa-home"></i>
-          </div>
-          <div>
-            <div class="title">Enfants</div>
-            <div class="value">2</div>
-          </div>
-          <div>
-            <div class="title">Animaux</div>
-            <div class="value">1</div>
-          </div>
-          <div>
-            <div class="title">Certificat</div>
-            <i class="fas fa-check-circle"></i>
-          </div>
-        </div>
-      </div>
+<div class="banner">
+  <div class="container p-3">
+    <h1>Je cherche une garde pour </h1>
+    <div class="d-flex">
+      <h2>Mon animal</h2>
+      <p>à</p>
+      <h2>Localisation</h2>
     </div>
-    <div class="general">
-      <h1>Mélissa Martin</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
+    <div class="d-flex">
+      <p>du</p>
+      <h2>01/01/2020</h2>
+      <p>au</p>
+      <h2>02/01/2020</h2>
     </div>
+    <%= link_to "Je trouve ma garde !", "#", class: "btn button-basic" %>
   </div>
 </div>

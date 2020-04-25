@@ -4,10 +4,14 @@ class Animal < ApplicationRecord
   belongs_to :bleed
   has_many :bookings
   has_many :reviews, through: :bookings
+  SEXE = ["Male", "Femelle"]
   has_many_attached :photos
 
-  validates :name, :age, :sex, presence: true
-  validates :descriptions, presence: true, length: { minimum: 20 }
+
+  validates :sex, inclusion: { in: SEXE }
+  validates :age, inclusion: {in: 1..20 }
+  validates :name, :age, :sex, :photo, presence: true
+  validates :description, presence: true, length: { minimum: 20 }
   validates :user, presence: true # Propriétaire du chien
 
 end

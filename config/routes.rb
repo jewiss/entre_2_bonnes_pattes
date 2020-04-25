@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :species
 
-  resources :users, except: [:index, :destroy] do
+  resources :users, except: [:destroy] do
     resources :bookings, only: [:create, :edit, :update]
   end
 

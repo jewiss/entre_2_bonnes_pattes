@@ -1,0 +1,65 @@
+<div class="container">
+  <% @users.each do |user| %>
+    <ul>
+      <li>
+          <div class="card">
+            <div class="additional">
+              <div class="user-card">
+                <div class="username center">
+                  <%= user.first_name.capitalize %> <%=user.last_name.capitalize%>
+                </div>
+                <div class="price center">
+                <!-- a renseigner quand on aura le prix pour chaque prestations -->
+                  10€/j
+                </div>
+                <div class="image_avatar center" style="background-image: url('https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60'); background-size: 100%;">
+                </div>
+              </div>
+              <div class="more-info">
+                <h1> <%= user.first_name.capitalize %> <%=user.last_name.capitalize%> </h1>
+                <div class="coords">
+                  <span>
+                    <%  if (Date.today.month < user.age.month) && (Date.today.day < user.age.day) %>
+                      <%= age = Date.today.year - user.age.year %>
+                    <% else %>
+                      <%= age = Date.today.year - user.age.year - 1 %>
+                    <% end %>
+                    ans
+                 </span>
+                 <!-- mettre review quand review dispo -->
+                 <span> Note</span>
+                </div>
+                <div class="coords">
+                  <span> <%= user.address %> </span>
+                  <!-- distance a calculer quand ca sera possible -->
+                  <span> 3Km</span>
+                </div>
+                <div class="stats">
+                  <div>
+                    <div class="title">Logement</div>
+                    <i class="fas fa-home"></i>
+                  </div>
+                  <div>
+                    <div class="title">Enfants</div>
+                    <div class="value">2</div>
+                  </div>
+                  <div>
+                    <div class="title">Animaux</div>
+                    <div class="value">1</div>
+                  </div>
+                  <div>
+                    <div class="title">Certificat</div>
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="general">
+              <h1><%= user.first_name.capitalize %> <%=user.last_name.capitalize%></h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
+            </div>
+          </div>
+      </li>
+    </ul>
+  <% end %>
+</div>

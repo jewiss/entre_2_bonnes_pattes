@@ -1,15 +1,38 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="my-3">Ajouter votre animal !</h1>
-      <%= simple_form_for(@animal) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :age, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :sex, collection: ["Male", "Femelle"], default: 'Male' %>
-        <%= f.input :description %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+      <form class="animal_form">
+        <h2 class="my-3 text-center "> Décrivez nous votre animal !</h2>
+        <%= simple_form_for(@animal) do |f| %>
+         <!--  <%= f.association :specie,label_method: :type_animal, as: :radio_buttons %> -->
+
+        <div class="form-group">
+          <legend class="col-form-label pt-0">Quel type d'animal avez-vous ?</legend>
+          <input type="hidden" name="animal[specie_id]" value="">
+
+          <div class="specie_choices">
+            <% Specie.all.each do |specie|%>
+                <div class="specie_choice">
+<!--                <label  for="animal_specie_id_<%= specie.id %>"> -->
+                <%= image_tag "choice_#{specie.type_animal}.png", class: "image_choice" %>
+                <input class="hidden" type="radio" value="<%= specie.id %>" name="animal[specie_id]" id="animal_specie_id_<%= specie.id %>">
+<!--                 </label> -->
+                </div>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+
+          <%= f.input :name, label: "Nom :"%>
+          <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+          <%= f.input :age, input_html: { min: '0', step: 'any' } %>
+          <%= f.input :sex, collection: ["Male", "Femelle"], default: 'Male' , label: "Sexe"%>
+          <%= f.input :description, label: "Description (Min 20 caractères)" %>
+          <%= f.association :bleed, label_method: :bleed_name%>
+
+          <%= f.submit class: 'btn button-basic w-100 mt-3' %>
+        <% end %>
+      </form>
     </div>
   </div>
 </div>

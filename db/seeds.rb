@@ -17,5 +17,25 @@ puts 'Creating 10 new users...'
     )
  user.save!
 end
+puts "users created !"
 
- puts "users created !"
+
+Specie.delete_all
+puts 'Creating Species'
+species = ["chien", "chat", "oiseau"]
+species.each do |specie|
+  x = Specie.new(type_animal: specie)
+  x.save!
+end
+puts "species created !"
+
+Bleed.delete_all
+puts 'Creating Breeds'
+breeds = ["Spitz", "Bichon maltais", "Berger Australien"]
+breeds.each do |breed|
+  x = Bleed.new(bleed_name: breed)
+  x.save!
+end
+puts "breeds created !"
+
+

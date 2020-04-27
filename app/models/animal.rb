@@ -5,7 +5,7 @@ class Animal < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
   SEXE = ["Male", "Femelle"]
-  has_many_attached :photos
+  has_many_attached :photo
 
 
   validates :sex, inclusion: { in: SEXE }

@@ -1,38 +1,79 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <form class="animal_form">
+      <div class="animal_form">
         <h2 class="my-3 text-center "> Décrivez nous votre animal !</h2>
         <%= simple_form_for(@animal) do |f| %>
-         <!--  <%= f.association :specie,label_method: :type_animal, as: :radio_buttons %> -->
+          <div class="form-group">
+            <legend class="col-form-label pt-0">Quel type d'animal avez-vous ?</legend>
+            <input type="hidden" name="animal[specie_id]" value="2">
 
-        <div class="form-group">
-          <legend class="col-form-label pt-0">Quel type d'animal avez-vous ?</legend>
-          <input type="hidden" name="animal[specie_id]" value="">
-
-          <div class="specie_choices">
-            <% Specie.all.each do |specie|%>
-                <div class="specie_choice">
-<!--                <label  for="animal_specie_id_<%= specie.id %>"> -->
-                <%= image_tag "choice_#{specie.type_animal}.png", class: "image_choice" %>
-                <input class="hidden" type="radio" value="<%= specie.id %>" name="animal[specie_id]" id="animal_specie_id_<%= specie.id %>">
-<!--                 </label> -->
-                </div>
-            <% end %>
+            <div class="specie_choices">
+              <% Specie.all.each do |specie|%>
+                  <div class="specie_choice">
+  <!--                <label  for="animal_specie_id_<%= specie.id %>"> -->
+                    <%= image_tag "choice_#{specie.type_animal}.png", class: "image_choice" %>
+                    <input class="hidden" type="radio" value="<%= specie.id %>" name="animal[specie_id]" id="animal_specie_id_<%= specie.id %>">
+  <!--                 </label> -->
+                  </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-        <hr>
 
-          <%= f.input :name, label: "Nom :"%>
-          <%= f.input :photo, as: :file, input_html: { multiple: true } %>
-          <%= f.input :age, input_html: { min: '0', step: 'any' } %>
-          <%= f.input :sex, collection: ["Male", "Femelle"], default: 'Male' , label: "Sexe"%>
+          <hr>
+
+          <div class="row p-3">
+            <div class="col-4 photo_animal">
+              <div><label for="upload"><span id="preview"></span></label></div>
+              <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-cloud-upload-alt"></i> Charger la photo
+              </label>
+              <%= f.input :photos, as: :file, label: false, input_html: { multiple: true, id: "file-upload",
+               :onchange => "handleFiles(files)"}%>
+            </div>
+
+            <div class="col-8">
+              <%= f.association :bleed, label_method: :bleed_name,
+              label: "Précisez la race :" %>
+              <%= f.input :name, label: "Nom :"%>
+              <%= f.input :sex, collection: ["Male", "Femelle"], default: 'Male' , label: "Sexe :"%>
+              <%= f.input :age, input_html: { min: '0', step: 'any' }, label: "Age : "%>
+            </div>
+          </div>
+
           <%= f.input :description, label: "Description (Min 20 caractères)" %>
-          <%= f.association :bleed, label_method: :bleed_name%>
 
-          <%= f.submit class: 'btn button-basic w-100 mt-3' %>
+          <%= f.submit class: 'btn button-basic  w-100 mt-3' %>
         <% end %>
-      </form>
+      </div>
+
     </div>
   </div>
 </div>
+<script>
+  function handleFiles(files) {
+   var imageType = /^image\//;
+   for (var i = 0; i < files.length; i++) {
+   var file = files[i];
+   if (!imageType.test(file.type)) {
+     alert("veuillez sélectionner une image");
+   }else{
+     if(i == 0){
+       preview.innerHTML = '';
+     }
+     var img = document.createElement("img");
+     img.classList.add("obj");
+     img.file = file;
+     preview.appendChild(img);
+     var reader = new FileReader();
+     reader.onload = ( function(aImg) {
+     return function(e) {
+     aImg.src = e.target.result;
+   };
+  })(img);
+
+ reader.readAsDataURL(file);
+ }
+ }
+}
+</script>

@@ -21,4 +21,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initAutocomplete();
   activeClass();
+
+
 });

@@ -1,3 +1,4 @@
+// Form for Sign Up User
 .form-card {
   height: 500px;
   max-width: 900px;
@@ -66,7 +67,7 @@
 // Form for Animal
 .animal_form {
   background-color: $form-color;
-  padding: 20px;
+  padding: 28px;
   border-radius: 0px 5px 5px 0px;
   margin: 20px 0;
   max-width: 900px;
@@ -114,23 +115,37 @@ input[type="radio"] {
   bottom: -29px;
 }
 
-// /* HIDE RADIO */
-// [type=radio] {
-//   position: absolute;
-//   opacity: 0;
-//   width: 0;
-//   height: 0;
-// }
+.photo_animal {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ }
 
-// /* IMAGE STYLES */
-// [type=radio] + img {
-//   cursor: pointer;
-// }
+.photo_animal > input
+{
+  display: none;
+}
 
-// /* CHECKED STYLES */
-// [type=radio]:checked + img {
-//   outline: 2px solid #f00;
-// }
+.photo_animal img
+{
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
 // Form multi steps
 .multisteps-form__progress {

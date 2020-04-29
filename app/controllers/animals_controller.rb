@@ -7,8 +7,6 @@ end
 
 def create
   @animal = Animal.new(animal_params)
-  @bleed = Bleed.all
-  raise
   authorize @animal
   @animal.user = current_user
   if @animal.save
@@ -21,7 +19,7 @@ end
 private
 
 def animal_params
-   params.require(:animal).permit(:name, :age, :sex, :description, :user_id, photo: [])
+   params.require(:animal).permit(:name, :age, :sex, :description, :user_id, :bleed_id, :specie_id, photos: [])
 end
 
 end

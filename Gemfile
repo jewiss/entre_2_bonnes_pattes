@@ -18,6 +18,8 @@ gem 'webpacker'
 gem 'faker'
 gem 'cloudinary'
 gem 'geocoder'
+gem 'nokogiri'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

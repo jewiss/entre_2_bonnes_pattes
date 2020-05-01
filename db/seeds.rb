@@ -1,9 +1,10 @@
 require "faker"
+require 'open-uri'
+require 'nokogiri'
+
 
 puts"Deleting users..."
-
 User.delete_all
-
 puts 'Creating 10 new users...'
 number_address = 1
 10.times do
@@ -36,7 +37,13 @@ puts"Deleting bleeds..."
 
 Bleed.delete_all
 puts 'Creating Breeds'
-breeds = ["Spitz", "Bichon maltais", "Berger Australien"]
+url = "https://www.toutoupourlechien.com/race-de-chien.html"
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+breeds = []
+html_doc.search('.chien-title').each do |element|
+  breeds << element.text.strip
+end
 breeds.each do |breed|
   x = Bleed.new(bleed_name: breed)
   x.save!

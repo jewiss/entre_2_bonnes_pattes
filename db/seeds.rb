@@ -6,6 +6,7 @@ require 'nokogiri'
 puts"Deleting users..."
 User.delete_all
 puts 'Creating 10 new users...'
+number_address = 1
 10.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -13,14 +14,16 @@ puts 'Creating 10 new users...'
     last_name: Faker::Name.last_name,
     first_name: Faker::Name.first_name,
     age: rand(Date.civil(1975, 1, 1)..Date.civil(2019, 12, 31)),
-    address: Faker::Address.full_address,
+    address: "#{number_address} avenue Champs Elysées, 75008 PARIS FRANCE" ,
     description: Faker::Lorem.sentence
     )
  user.save!
+ number_address += 10
 end
 puts "users created !"
 
 puts"Deleting species..."
+
 Specie.delete_all
 puts 'Creating Species'
 species = ["chien", "chat", "oiseau"]
@@ -31,6 +34,7 @@ end
 puts "species created !"
 
 puts"Deleting bleeds..."
+
 Bleed.delete_all
 puts 'Creating Breeds'
 url = "https://www.toutoupourlechien.com/race-de-chien.html"

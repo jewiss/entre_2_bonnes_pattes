@@ -1,0 +1,9 @@
+#userAddress {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: rgba(250, 250, 250, 0.6);
+  &::placeholder {
+  color: rgba(250, 250, 250, 0.6);
+  }
+}

@@ -1,23 +1,19 @@
 <div class="banner home-search">
   <div class="container p-3">
-    <h1>Je cherche une garde pour </h1>
-    <div class="d-flex">
-      <h2>Mon animal</h2>
-      <p>à</p>
-      <%= form_with url: users_path, method: "GET", local: true do |f| %>
-        <h2>
-          <%= f.text_field :search, id: "userAddress", placeholder: "Adresse ou lieu" %>
-        </h2>
-    </div>
-    <div class="d-flex">
-      <p>du</p>
-      <h2>01/01/2020</h2>
-      <p>au</p>
-      <h2>02/01/2020</h2>
-    </div>
-    <div id="s-cover">
+    <%= form_with url: users_path, method: "GET", local: true do |f| %>
+      <h1>Je cherche une garde pour </h1>
+      <div class="d-flex">
+        <h2>Mon animal</h2>
+        <p>à</p>
+        <h2><%= f.text_field :search, id: "userAddress", placeholder: "Adresse ou lieu" %></h2>
+      </div>
+      <div class="d-flex">
+        <p>du</p>
+        <h2>01/01/2020</h2>
+        <p>au</p>
+        <h2>02/01/2020</h2>
+      </div>
       <%= f.submit "", value: "Je trouve ma garde !", class: "btn button-basic" %>
-    </div>
-      <% end %>
+    <% end %>
   </div>
 </div>

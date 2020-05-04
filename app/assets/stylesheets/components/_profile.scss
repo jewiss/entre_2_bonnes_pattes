@@ -1,5 +1,5 @@
 .photo-user-profile {
-  height: 200px;
+  height: 180px;
   width: 100%;
   object-fit: cover;
   margin-top: 5px;
@@ -21,6 +21,18 @@
 .button-basic > a {
   color: white;
   text-decoration: none;
+}
+
+.btn > a {
+  color: $middle-pink;
+  text-decoration: none;
+}
+
+.user-edit-button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background: red;
 }
 
 .user-description, .user-services {

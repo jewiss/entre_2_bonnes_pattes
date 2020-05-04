@@ -6,6 +6,20 @@
   transition: background 0.3s ease;
 }
 
+.button-edit {
+  color: rgba(0,0,0,0.8);
+  background: transparent;
+  transition: background 0.3s ease;
+  position: absolute;
+  top: 104px;
+  right: 184px;
+  font-size: 30px;
+}
+
+.button-edit  > a {
+  color: $dark-pink;
+}
+
 .btn:focus {
 box-shadow: 0 0 0 .2rem #EABFCB;
 }

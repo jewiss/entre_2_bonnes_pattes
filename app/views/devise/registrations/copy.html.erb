@@ -1,4 +1,19 @@
-<div class="container pt-3 pb-3">
+<div class="container">
+  <div class="form-container pt-3 pb-3">
+    <div class="">
+
+      <!--progress bar-->
+<!--       <div class="row m-0 p-0">
+        <div class="col-12 col-lg-8 ml-auto mr-auto mb-1">
+          <div class="multisteps-form__progress">
+            <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Mon Profil</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Address">Mon Animal</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Order Info">Animal details</button>
+            <button class="multisteps-form__progress-btn" type="button" title="Comments">Validation        </button>
+          </div>
+        </div>
+      </div>
+ -->
       <!--form panels-->
       <div class="multisteps-form__form">
         <!--1 form panel User Profile-->
@@ -19,14 +34,14 @@
 
                 <div class="form-inputs">
                   <div class="form-row input-group mb-4">
-                    <div class="col-6 photo_user">
-                     <label for="upload"><span id="preview"></span></label>
-                      <label for="file-upload" class="custom-file-upload">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                      </label>
-                      <%= f.input :user_photo, as: :file, label: false, input_html: { id: "file-upload",
-                       :onchange => "handleFiles(files)"}%>
-                    </div>
+                    <div class="col-12 photo_animal">
+                    <div><label for="upload"><span id="preview"></span></label></div>
+                    <label for="file-upload" class="custom-file-upload">
+                      <i class="fas fa-cloud-upload-alt"></i> Charger la photo
+                    </label>
+                    <%= f.input :photo, as: :file, label: false, input_html: { multiple: true, id: "file-upload",
+                     :onchange => "handleFiles(files)"}%>
+                  </div>
 
                     <div class="col-6">
                       <div class="input-group-prepend mb-4">
@@ -37,7 +52,8 @@
                                   input_html: { autocomplete: "first_name" }, class: "form-control"%>
                         </div>
                       </div>
-
+                    </div>
+                    <div class="col-6">
                       <div class="input-group-prepend">
                         <span class="input-group-addon icon"><i class="fas fa-user"></i></span>
                         <div class="flex-grow-1">
@@ -121,13 +137,80 @@
               <% end %>
 
               <%= render "devise/shared/links" %>
+              <!-- <div class="button-row d-flex mt-4">
+                <button class="btn button-basic ml-auto js-btn-next" type="button" title="Next">Suite</button>
+              </div> -->
             </div>
           </div>
         </div>
+
+        <!--2 form panel Animal basis-->
+     <!--    <div class="multisteps-form__panel tab" data-animation="scaleIn">
+          <div class="row form-card">
+            <div class="col-4 form-img", style="background-image: url(<%= asset_path 'spitz.png' %>);">
+              <div class="mt-5 d-flex flex-column align-items-center">
+                <%= image_tag "logo.png", style: "height: 40px; width: auto"%>
+                <h6 class="text-center text-white">Entre deux<br>
+                 bonnes pates</h6>
+              </div>
+            </div>
+
+            <div class="col-8 form-infos">
+              <h4 class="text-center mt-4 text-bold">Hello ! Parlez-nous de votre animal</h4>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= f.error_notification %>
+
+                <div class="form-inputs">
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-addon icon"><i class="far fa-envelope"></i></span>
+                    </div>
+                    <%= f.input :email, label: false, autofocus: true,
+                                placeholder: 'email',
+                                input_html: { autocomplete: "email" }, class: "form-control"%>
+                  </div>
+
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-addon icon"><i class="fa fa-key"></i></span>
+                    </div>
+                    <%= f.input :password, label: false, required: true,
+                                placeholder: 'mot de passe',
+                                hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                                input_html: { autocomplete: "new-password" }, class: "form-control" %>
+                  </div>
+
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-addon icon"><i class="fa fa-key"></i></span>
+                    </div>
+                    <%= f.input :password_confirmation, label: false,
+                              placeholder: 'confirmer mot de passe',
+                              required: true,
+                              input_html: { autocomplete: "new-password" } %>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <%= f.button :submit, "S'inscrire", class: "btn btn-block button-basic text-white" %>
+                </div>
+
+              <% end %>
+
+              <%= render "devise/shared/links" %>
+              <div class="button-row d-flex mt-4 justify-content-end">
+                <button class="btn button-basic mr-2 js-btn-prev" type="button" title="Prev">Retour</button>
+                <button class="btn button-basic js-btn-next" type="button" title="Next">Suite</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
       </div>
 
+    </div>
+  </div>
 </div>
-
 <script>
   function handleFiles(files) {
    var imageType = /^image\//;

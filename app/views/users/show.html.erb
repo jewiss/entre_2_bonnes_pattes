@@ -8,22 +8,24 @@
   <div class="row m-5 ">
 
     <div class="col-4 user-profile">
-
+      <% if @user.user_photo.attached? %>
+        <%= cl_image_tag @user.user_photo.key, class: "photo-user-profile" %>
+      <% else %>
         <%= image_tag "profile.jpg", class: "photo-user-profile"%>
-        <h2 class="text-center"><%= @user.first_name %></h2>
-        <h6 class="my-1 p-1 text-center"><%= @old %> ans</h6>
-        <div class="d-flex justify-content-around mb-2 mt-2">
-          <%= image_tag "children.png", class: "icon-user-profile"%>
-          <%= image_tag "building.png", class: "icon-user-profile"%>
-          <%= image_tag "certificat.png", class: "icon-user-profile"%>
-        </div>
-        <div class="text-center btn btn-light border-secondary">
-          <%= link_to "Ajouter un animal", new_animal_path %>
-        </div>
-        <div class="text-center button-basic">
-          <%= link_to "Me Contacter" %>
-        </div>
-
+      <% end %>
+      <h2 class="text-center"><%= @user.first_name %></h2>
+      <h6 class="my-1 p-1 text-center"><%= @old %> ans</h6>
+      <div class="d-flex justify-content-around mb-2 mt-2">
+        <%= image_tag "children.png", class: "icon-user-profile"%>
+        <%= image_tag "building.png", class: "icon-user-profile"%>
+        <%= image_tag "certificat.png", class: "icon-user-profile"%>
+      </div>
+      <div class="text-center btn btn-light border-secondary">
+        <%= link_to "Ajouter un animal", new_animal_path %>
+      </div>
+      <div class="text-center button-basic">
+        <%= link_to "Me Contacter" %>
+      </div>
     </div>
 
     <div class="col-8">

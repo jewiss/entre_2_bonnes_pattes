@@ -1,0 +1,43 @@
+.card-message {
+  overflow: hidden;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #f2e8e8;
+  padding:10px;
+}
+
+.card-message img {
+  object-fit: cover;
+}
+
+.card-message h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-message p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-message .card-message-user {
+  padding: 16px;
+}
+
+.card-message-user p {
+  padding-left: 5px;
+}
+
+#message_body {
+  width: 100%
+}
+
+#new_message > input[type=submit]:nth-child(3) {
+  background: $middle-pink;
+  color: white;
+}

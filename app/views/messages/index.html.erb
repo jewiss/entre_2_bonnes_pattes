@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="mt-2">
+    <% @messages.each do |message| %>
+      <% if message.body %>
+        <div class="card-message">
+            <% if message.user.user_photo.attached? %>
+              <%= cl_image_tag message.user_photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% else %>
+              <%= image_tag "pet.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          <div class="card-message-user">
+            <h4><%= message.user.first_name + " " + message.user.last_name %></h4>
+            <p><%= message.body %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="mt-2">
+    <%= form_for [@conversation, @message] do |f| %>
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Ton message" %>
+      </div>
+
+      <%= f.submit "Envoyez" %>
+    <% end %>
+  </div>
+</div>

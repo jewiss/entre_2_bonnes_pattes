@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="inbox">
+    <h1>Inbox</h1>
+      <% @conversations.each do |conversation| %>
+        <% recipient = conversation.sender_id == current_user.id ? conversation.recipient : conversation.sender %>
+        <li>
+            <% if recipient.user_photo.attached? %>
+              <%= cl_image_tag recipient.user_photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <% else %>
+              <%= image_tag "pet.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <%= link_to recipient.first_name + " " + recipient.last_name, conversation_messages_path(conversation) %>
+        </li>
+      <% end %>
+  </div>
+
+<!-- <h2>Users</h2>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.first_name + " " + user.last_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></li>
+  <% end %>
+</ul> -->
+</div>

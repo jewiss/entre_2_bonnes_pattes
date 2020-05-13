@@ -23,9 +23,12 @@
       <div class="text-center btn btn-light border-secondary">
         <%= link_to "Ajouter un animal", new_animal_path %>
       </div>
-      <div class="text-center button-basic">
-        <%= link_to "Me Contacter" %>
-      </div>
+      <% if current_user == @user %>
+      <% else %>
+        <div class="text-center button-basic">
+          <%= link_to "Me Contacter", conversations_path(sender_id: current_user.id, recipient_id: @user.id) , method: :post   %>
+        </div>
+      <% end %>
     </div>
 
     <div class="col-8">

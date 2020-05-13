@@ -1,0 +1,19 @@
+.inbox {
+  border: 2px solid #f2e8e8;
+  margin-top: 20px;
+}
+
+.inbox h1{
+  background: #f2e8e8;
+  padding-left: 10px;
+  margin:0;
+}
+
+.inbox li{
+  list-style: none;
+  padding-left: 20px;
+  border: 1px solid #f2e8e8;;
+  & img {
+    margin-right: 10px;
+  }
+}

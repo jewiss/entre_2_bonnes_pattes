@@ -1,4 +1,20 @@
 <div class="container">
+  <div class="search-bar">
+    <%= form_with url: users_path, method: "GET", local: true do |f| %>
+      <div class="d-flex justify-content-around align-items-center">
+        <% if params[:search].present? %>
+        <%= f.text_field :search,  placeholder: params[:search] %>
+        <% else %>
+        <%= f.text_field :search,  placeholder: "Adresse ou lieu" %>
+        <% end %>
+        <p>du</p>
+        <p>01/01/2020</p>
+        <p>au</p>
+        <p>02/01/2020</p>
+        <%= f.submit "", value: "Je trouve ma garde !", class: "btn button-basic", data: { disable_with: false } %>
+      </div>
+    <% end %>
+  </div>
   <div class="wrapper">
     <div class="column1">
       <ul class="pl-0">

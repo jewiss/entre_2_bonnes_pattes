@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   geocoded_by :address
   has_many :animals
+  has_one :petsitter
   has_one_attached :user_photo
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

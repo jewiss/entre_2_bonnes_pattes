@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy] do
     resources :bookings, only: [:create, :edit, :update]
+    resources :petsitters
   end
 
   resources :bookings do

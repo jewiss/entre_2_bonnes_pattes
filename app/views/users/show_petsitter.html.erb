@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="button-edit">
+      <%= link_to edit_user_path do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    </div>
+  <div class="row m-5 ">
+
+    <div class="col-4 user-profile">
+      <% if @user.user_photo.attached? %>
+        <%= cl_image_tag @user.user_photo.key, class: "photo-user-profile" %>
+      <% else %>
+        <%= image_tag "profile.jpg", class: "photo-user-profile"%>
+      <% end %>
+      <h2 class="text-center"><%= @user.first_name %></h2>
+      <h6 class="my-1 p-1 text-center"><%= @old %> ans</h6>
+      <div class="d-flex justify-content-around mb-2 mt-2">
+        <%= image_tag "children.png", class: "icon-user-profile"%>
+        <%= image_tag "building.png", class: "icon-user-profile"%>
+        <%= image_tag "certificat.png", class: "icon-user-profile"%>
+      </div>
+      <div class="text-center btn btn-light border-secondary">
+        <%= link_to "Ajouter un animal", new_animal_path %>
+      </div>
+      <% if current_user == @user %>
+      <% else %>
+        <div class="text-center button-basic">
+          <%= link_to "Me Contacter", conversations_path(sender_id: current_user.id, recipient_id: @user.id) , method: :post   %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-8">
+      <div class="user-informations">
+        <div class="user-description">
+          Descriptions / motivations
+        </div>
+
+        <div class="user-services">
+          Services / tarifs
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

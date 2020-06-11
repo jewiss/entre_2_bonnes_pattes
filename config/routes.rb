@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :species
 
+  resources :petsitters
+
   resources :users, except: [:destroy] do
     resources :bookings, only: [:create, :edit, :update]
     resources :petsitters

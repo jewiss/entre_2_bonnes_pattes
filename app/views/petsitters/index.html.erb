@@ -1,6 +1,6 @@
 <div class="container">
   <div class="search-bar">
-    <%= form_with url: users_path, method: "GET", local: true do |f| %>
+    <%= form_with url: petsitters_path, method: "GET", local: true do |f| %>
       <div class="d-flex justify-content-around align-items-center">
         <% if params[:search].present? %>
         <%= f.text_field :search,  placeholder: params[:search] %>
@@ -18,13 +18,13 @@
   <div class="wrapper">
     <div class="column1">
       <ul class="pl-0">
-        <% @users.each do |user| %>
+        <% @petsitters.each do |petsitter| %>
           <li class="list-unstyled">
             <div class="card">
               <div class="additional">
                 <div class="user-card">
                   <div class="username center">
-                    <%= user.first_name.capitalize %> <%=user.last_name.capitalize%>
+                    <%= petsitter.user.first_name.capitalize %> <%=petsitter.user.last_name.capitalize%>
                   </div>
                   <div class="price center">
                   <!-- a renseigner quand on aura le prix pour chaque prestations -->
@@ -34,13 +34,13 @@
                   </div>
                 </div>
                 <div class="more-info">
-                  <h1> <%= user.first_name.capitalize %> <%=user.last_name.capitalize%> </h1>
+                  <h1> <%= petsitter.user.first_name.capitalize %> <%=petsitter.user.last_name.capitalize%> </h1>
                   <div class="coords">
                     <span>
-                      <%  if (Date.today.month < user.age.month) && (Date.today.day < user.age.day) %>
-                        <%= age = Date.today.year - user.age.year %>
+                      <%  if (Date.today.month < petsitter.user.age.month) && (Date.today.day < petsitter.user.age.day) %>
+                        <%= age = Date.today.year - petsitter.user.age.year %>
                       <% else %>
-                        <%= age = Date.today.year - user.age.year - 1 %>
+                        <%= age = Date.today.year - petsitter.user.age.year - 1 %>
                       <% end %>
                       ans
                    </span>
@@ -48,7 +48,7 @@
                    <span> Note</span>
                   </div>
                   <div class="coords">
-                    <span> <%= user.address %> </span>
+                    <span> <%= petsitter.address %> </span>
                     <!-- distance a calculer quand ca sera possible -->
                     <span> 3Km</span>
                   </div>
@@ -73,7 +73,7 @@
                 </div>
               </div>
               <div class="general">
-                <h1><%= user.first_name.capitalize %> <%=user.last_name.capitalize%></h1>
+                <h1><%= petsitter.user.first_name.capitalize %> <%=petsitter.user.last_name.capitalize%></h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
               </div>
             </div>

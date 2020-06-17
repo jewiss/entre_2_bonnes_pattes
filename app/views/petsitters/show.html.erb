@@ -7,12 +7,12 @@
   <div class="row m-5 ">
 
     <div class="col-4 user-profile">
-      <% if @user.user_photo.attached? %>
-        <%= cl_image_tag @user.user_photo.key, class: "photo-user-profile" %>
+      <% if @petsitter.user.user_photo.attached? %>
+        <%= cl_image_tag @petsitter.user.user_photo.key, class: "photo-user-profile" %>
       <% else %>
         <%= image_tag "profile.jpg", class: "photo-user-profile"%>
       <% end %>
-      <h2 class="text-center"><%= @user.first_name %></h2>
+      <h2 class="text-center"><%= @petsitter.user.first_name %></h2>
       <h6 class="my-1 p-1 text-center"><%= @old %> ans</h6>
       <div class="d-flex justify-content-around mb-2 mt-2">
         <%= image_tag "children.png", class: "icon-user-profile"%>
@@ -25,7 +25,7 @@
       <% if current_user == @user %>
       <% else %>
         <div class="text-center button-basic">
-          <%= link_to "Me Contacter", conversations_path(sender_id: current_user.id, recipient_id: @user.id) , method: :post   %>
+          <%= link_to "Me Contacter", conversations_path(sender_id: current_user.id, recipient_id: @petsitter.user.id) , method: :post   %>
         </div>
       <% end %>
     </div>

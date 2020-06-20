@@ -48,7 +48,7 @@
                    <span> Note</span>
                   </div>
                   <div class="coords">
-                    <span> <%= petsitter.address %> </span>
+                    <span> <%= Geocoder.search([petsitter.latitude, petsitter.longitude]).first.city %> </span>
                     <!-- distance a calculer quand ca sera possible -->
                     <span> 3Km</span>
                   </div>

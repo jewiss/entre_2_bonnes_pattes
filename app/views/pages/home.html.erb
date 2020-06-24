@@ -1,11 +1,12 @@
+
 <div class="banner home-search">
   <div class="container p-3">
     <%= form_with url: petsitters_path, method: "GET", local: true do |f| %>
       <h1>Je cherche une garde pour </h1>
-      <div class="d-flex">
-        <h2>Mon animal</h2>
+      <div class="d-flex align-items-center">
+        <%= f.select(:type_animal, @species.collect {|m| [ m.type_animal] },  {}, class: "select2", multiple: true) %>
         <p>à</p>
-        <h2><%= f.text_field :search, id: "userAddress", placeholder: "Adresse ou lieu" %></h2>
+        <%= f.text_field :search, id: "user_city", placeholder: "lieu" %>
       </div>
       <div class="d-flex">
         <p>du</p>
